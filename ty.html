@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thank You</title>
+
+	<link rel="stylesheet" href="mystyle.css">
+
+	<script type="text/javascript">
+
+		var a;
+		var cnt=0;
+		function get()
+		{
+			var fname=localStorage.getItem("fn");
+			var mail=localStorage.getItem("sendmail");
+			var firstw=fname.split(" ")[0];
+
+			document.getElementById("firstword").innerHTML=firstw;
+			document.getElementById("printmail").innerHTML=mail;
+		}
+
+		function createOTP()
+		{
+			//var otp=Math.floor(Math.random()*10000)+1;
+			var digits = '0123456789';
+    		let otp = '';
+    		for (let i = 0; i < 4; i++ ) 
+    		{
+        		otp += digits[Math.floor(Math.random() * 10)];
+    		}
+			a=otp;
+			console.log(otp);
+			cnt++;
+			//alert(cnt);
+		}
+
+		function checkOTP()
+		{
+			var test=document.getElementById("otp").value;
+			if(test==a)
+			{
+				alert("Correct OTP!");
+				location.replace("Validsuccess.html");
+			}
+			else
+			{
+				alert("Invalid OTP!");
+				document.getElementById("invalid").innerHTML="Enter Correct OTP!";
+				if(cnt==3)
+				{
+					location.replace("http://pixel6.co/page%20not%20found");
+				}
+				else
+				{
+					var cc=createOTP();
+				}				
+			}
+
+		}
+	</script>
+</head>
+
+<body onload="get();createOTP();">
+	<div id="outline">
+	<center>
+		<h1>Thank You !</h1>
+		<table>
+			<tr>
+				<td><p>Dear <label id="firstword"></label>,</td>
+			</tr>
+
+			<tr>
+				<td>Thank you for your inquiry. A 4 digit verification number has been sent to your</td>
+			</tr>
+
+			<tr>
+				<td>email: <u> <label id="printmail"></label></u>,please enter it in the following box and submit for confirmation: </p></td>
+			</tr>
+
+			<tr>
+				<td><label>Enter OTP : </label><br><input type="text" name="otp" id="otp" class="inp" placeholder="Enter OTP"></td>
+			</tr>
+
+			<tr>
+				<td><p id="invalid"></p></td>
+			</tr>
+
+			<tr>
+				<td><button onclick="checkOTP();" class="button">Validate</button></td>
+			</tr>
+		</table>
+	
+	</center>
+	</div>
+</body>
+</html>

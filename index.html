@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Loan Application</title>
+
+	<script type="text/javascript" src="jscript.js"></script>
+
+	<link rel="stylesheet" href="mystyle.css">
+
+</head>
+
+
+<body onload="randomnum();" onsubmit="return false">
+	
+	<div id="outline">
+
+	<form class="form" name="form1">
+		<h1><u>Loan Application Form</u></h1>
+
+	<table>
+		<tr>
+			<td><label>Full Name :</label></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="fname" id="name" class="inp" pattern="^[A-Za-z]{4,}[\s][A-Za-z]{4,}" placeholder="Enter Name"></td>
+		</tr>
+	
+		<tr>
+			<td><label>Email :</label></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="mail" id="mail" class="inp" placeholder="Enter Email"></td>
+		</tr>
+
+		<tr>
+			<td><label>PAN : </label></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="pan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" class="inp" placeholder="Enter PAN"></td>
+		</tr>
+
+		<tr>
+			<td><label>Loan Amount : </label></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="lamt" id="loan" pattern="[0-9]{0,9}" class="inp" placeholder="Enter Loan"></td>
+		</tr>
+
+		<tr>
+
+			<td><label id="words"><h3></h3></label><br><br></td>
+		</tr>
+
+		<tr>
+			<td><label>Captcha : </label><label id="n1"></label> + <label id="n2"></label> = </h3></td>
+		</tr>
+		<tr>
+			<td><input type="text" name="result" id="result" class="inp" placeholder="Enter Answer"></td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td><label id="simple"></label><br><br></td>
+		</tr>
+
+		<tr>
+			<td><button name="rcaptcha" class="button" onclick="randomnum();">Refresh Captcha</button></td>
+		</tr>
+	    <tr>
+			<td><center><input type="button" value="Submit" name="Submit" class="button" formtarget="_blank" onclick="finalgo();"></center></td>
+		</tr>
+	</table>		
+	</form>	
+	</div>
+</body>
+</html>
